@@ -11,6 +11,7 @@ function init() {
         switch (message.channel) {
             case 'track':
                 calculate(message.payload.albumArt);
+                document.title = `${message.payload.title} - ${message.payload.artist}`;
                 break;
         };
     });
