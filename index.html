@@ -1,0 +1,89 @@
+<html>
+
+<head>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.3/dist/vibrant.js"></script>
+
+    <script src="index.js"></script>
+
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+
+
+        body {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: black;
+
+            transition: 200ms background-image ease, 200ms background-color ease;
+
+            background-size: contain;
+
+            font-family: Roboto, sans-serif
+        }
+
+
+        .settings {
+            opacity: 0;
+            background: white;
+
+            transition: 200ms opacity ease;
+
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            padding: 32px;
+        }
+
+        .settings:hover {
+            opacity: 1;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="settings">
+        <h1>settings</h1>
+        <span>Debug url
+            <input id="image" type="text" oninput="calculate(this.value)" title="Debug url">
+        </span>
+
+        <span>Homeassistant Address
+                <input id="hassAddress" type="text" onchange="savePreference('hassAddress',this.value)">
+        </span>
+
+        <button onclick="setAuthToken()">Set Long-Lived Access Token</button>
+
+        <!-- <button onclick="requestAuthToken()">Set Proper Token</button> -->
+        <span>Light Entity Id
+                <input id="entityId" type="text" onchange="savePreference('entityId',this.value)">
+        </span>
+
+        <span>Google Play Music Desktop Player Address
+        <input id="gpmdpAddress" type="text" onchange="savePreference('gpmdpAddress',this.value)">
+</span>
+
+
+        <select id="userSwatch" onchange="savePreference('userSwatch',this.value)">
+                <option value="DarkMuted">DarkMuted</option>
+                <option value="DarkVibrant">DarkVibrant</option>
+                <option value="LightMuted">LightMuted</option>
+                <option value="LightVibrant">LightVibrant</option>
+                <option value="Muted">Muted</option>
+                <option value="Vibrant">Vibrant</option>
+        </select>
+
+    </div>
+
+</body>
+
+</html>
